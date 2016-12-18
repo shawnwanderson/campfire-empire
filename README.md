@@ -1,3 +1,6 @@
+# campfire-empire
+A web app built for Victoria's art collective campfire empire
+
 # {{ project_name }}
 
 ## Getting Started
@@ -11,3 +14,4 @@ pip install -r requirements.txt
 ./manage.py loaddata sites
 ./manage.py runserver
 ```
+
