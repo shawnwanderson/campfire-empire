@@ -1,0 +1,103 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block head_title %}Campfire Empire{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+    <section class="jumbotron">
+        <div class="container">
+            {% include "_messages.html" %}
+            <h1>{% blocktrans %}Welcome to<br>Campfire Empire{% endblocktrans %}</h1>
+            <p>
+                {% blocktrans %}
+                Browse the victoria's most groundbreaking artists, take a look at the gallery,
+                check out upcoming events, and get involved.
+                {% endblocktrans %}
+            </p>
+            {% if not user.is_authenticated %}
+            {% url "account_login" as login_url %}
+            {% url "account_signup" as signup_url %}
+            <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> to create your own home page, post events, or organize collectives{% endblocktrans %}</p>
+            {% endif %}
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2 class="text-center">{% blocktrans %}What is Campfire Empire?{% endblocktrans %}</h2>
+            <p class="lead">
+                {% blocktrans %}
+                <b>Campfire Empire</b> is a group of world trained assasins, posing as artists, musicians, standup-comedians,
+                and just your every day vitctorian millenials.
+                {% endblocktrans %}
+            </p>
+            <div class="feature-columns">
+                <div>
+                    <i class="fa fa-cubes fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Gallery</b> - checkout the bleeding edge of art. 
+                    {% endblocktrans %}
+                </div>
+                <div>
+                    <i class="fa fa-puzzle-piece fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Artists</b> - You won't believe the characters you will find 
+                    {% endblocktrans %}
+                </div>
+                <div>
+                    <i class="fa fa-tint fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Events</b> - Do you like to party?
+                    {% endblocktrans %}
+                </div>
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<div class="hovereffect">
+                        <img class="img-responsive" src={% static "trees.jpg" %} alt="">
+							<div class="overlay">
+								<h2>Gallery</h2>
+								<p> 
+									<a href="/gallery">Gallery</a>
+								</p> 
+							</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<div class="hovereffect">
+                        <img class="img-responsive" src={% static "girl.jpg" %} alt="http://placehold.it/350x250">
+							<div class="overlay">
+								<h2>Artists</h2>
+								<p> 
+									<a href="/artists">Artists</a>
+								</p> 
+							</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<div class="hovereffect">
+                        <img class="img-responsive" src={% static "grapes.jpg"%} alt="http://placehold.it/350x250">
+							<div class="overlay">
+								<h2>Events</h2>
+								<p> 
+									<a href="/events">Events</a>
+								</p> 
+							</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <p class="lead text-center">
+                {% blocktrans %}
+                See <a href="http://pinaxproject.com/">pinaxproject.com</a>
+                for more information.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </section>
+{% endblock %}
