@@ -1,3 +1,6 @@
+# Production
+ac5/prod_settings.py
+manage.py
 # Pinax/Django
 node_modules/
 dev.db
