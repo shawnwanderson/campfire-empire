@@ -1,4 +1,4 @@
-from ac5.settings import *
+from ac5.base_settings import *
 
 DEBUG=True
 
