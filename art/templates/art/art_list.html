@@ -1,0 +1,38 @@
+{% extends "art/base.html" %}
+{% block content %}
+{% load generic_scaffold_tags %}
+{% load static %}
+{% load i18n %}
+<link type="text/css" rel="stylesheet" href="{% static '/art/list.css' %}" />
+
+<section class="jumbotron">
+	<div class="container">
+		{% include "_messages.html" %}
+		<h1>{% blocktrans %}Art{% endblocktrans %}</h1>
+		<p>
+			Browse art created by the Campfire Empire collective
+		</p>
+		<p>You can <a href="{% url object_list.model.create_url_name %}" class="btn btn-primary">Create A New Art</a> or browse the art below.</p>
+		{% if not user.is_authenticated %}
+			{% url "account_login" as login_url %}
+			{% url "account_signup" as signup_url %}
+			<p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> to create your own home page, post events, or organize collectives{% endblocktrans %}</p>
+		{% endif %}
+	</div>
+</section>
+
+<div class="container">
+<ul>
+    {% for object in object_list %}
+        <li>
+            <a href='{% url object.detail_url_name object.id %}'>{{object}}</a>
+        </li>
+    {% endfor %}
+</ul>
+</div>
+
+<div class="container text-right">
+    <a class="btn btn-primary" href='{% url object_list.model.create_url_name %}'>Create A New Art</a>
+</div>
+
+{% endblock %}

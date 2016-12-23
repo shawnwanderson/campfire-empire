@@ -140,10 +140,14 @@ INSTALLED_APPS = [
     "pinax.eventlog",
     "pinax.webanalytics",
     "avatar",
+    "django_markdown",
+    "generic_scaffold",
 
     # project
     "ac5",
     "artists",
+    "events",
+    "art",
 ]
 
 # A sample logging configuration. The only tangible logging
